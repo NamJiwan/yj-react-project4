@@ -1,70 +1,110 @@
-# Getting Started with Create React App
+## [npm] npm install -D tailwindcss
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- npm install -D tailwindcss
+- npx tailwindcss init
 
-## Available Scripts
+## [npm] @tailwindcss/forms
 
-In the project directory, you can run:
+- form 요소를 유틸리티로 쉽게 재정의할 수 있도록 하는 form 스타일에 대한 기본 reset을 제공하는 플러그인입니다. @tailwindcss/forms 플러그인은 유틸리티 클래스를 사용하여 form 요소의 스타일을 쉽게 지정할 수 있도록 하는 독창적인 form reset layer를 추가합니다.
 
-### `npm start`
+- plugins: [
+  require('@tailwindcss/forms'),
+  // ...
+  ],
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## [npm] react-router-dom
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- npm install react-router-dom
+- https://reactrouter.com/en/main/route/route
 
-### `npm test`
+## [npm]react multi carousel
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- npm i react-multi-carousel
+- https://www.npmjs.com/package/react-multi-carousel
+- www.junia.ai/react-multi-carousel
 
-### `npm run build`
+## [npm] npm install react-responsive-carousel --save
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- http://react-responsive-carousel.js.org/#install
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## [npm] react-calendar
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- npm i react-calendar
+- https://www.npmjs.com/package/react-calendar
 
-### `npm run eject`
+## [npm] date-fns
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- https://www.npmjs.com/package/date-fns
+- npm i date-fns
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## [npm] npm install @tanstack/react-table
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- npm install @tanstack/react-table
+- https://tanstack.com/table/v8
+- https://velog.io/@kemezz/TanStack-React-Table-v8-%EA%B8%B0%EB%B3%B8%ED%8E%B8
+- https://www.youtube.com/watch?v=n4vgItNB_ac&list=PLC3y8-rFHvwgWTSrDiwmUsl4ZvipOw9Cz&index=5
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## [npm] react-datepicker
 
-## Learn More
+## [npm] react-bit-calendar
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## [npm] aos
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- https://michalsnik.github.io/aos/
 
-### Code Splitting
+## [npm] react transition
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- https://codesandbox.io/s/react-transition-styled-3id7q
+- https://www.npmjs.com/package/react-transition-state
 
-### Analyzing the Bundle Size
+## [npm] tailwind-scrollbar-hide
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- npm install tailwind-scrollbar-hide
+- https://github.com/reslear/tailwind-scrollbar-hide
 
-### Making a Progressive Web App
+## [npm] react markdown
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- https://github.com/remarkjs/react-markdown
+- https://www.npmjs.com/package/react-markdown
 
-### Advanced Configuration
+## [npm] @tailwindcss/typography
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- https://tailwindcss.com/docs/typography-plugin
 
-### Deployment
+#
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+#
 
-### `npm run build` fails to minify
+## [설명참고] CSS 프레임워크
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- https://www.youtube.com/watch?v=FRSUP2sbgTY]
+
+## [설명참고] 마우스 호버 드롭다운 메뉴
+
+- https://blog.logrocket.com/how-create-multilevel-dropdown-menu-react/
+
+## [설명참고] 마우스 클릭시 드롭다운 메뉴
+
+- https://charles098.tistory.com/190
+
+## [설명참고] 리액트 햄버거 메뉴
+
+- https://www.youtube.com/watch?v=GGkBwpxV7AI
+
+## [설명참고] how to make react accordion
+
+- https://blog.logrocket.com/how-to-build-a-react-accordion-menu-from-scratch/
+
+## [설명참고] tailwindcss 내장 에니메이션
+
+- https://onlydev.tistory.com/141
+
+## [설명참고] date-fns
+
+- https://jsikim1.tistory.com/197
+
+#
+
+#
+
+## [유용한확장장] react-native snippet
