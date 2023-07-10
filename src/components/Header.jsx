@@ -3,7 +3,7 @@ import LogoAsset from "./asset/LogoAsset";
 import SearchAsset from "./asset/SearchAsset";
 
 const GNB = [
-  { mainTitle: "공연안내", subTitle: "Performance", link: "/performance" },
+  { mainTitle: "공연안내", subTitle: "Performance", link: "/information" },
   { mainTitle: "공간 대관안내", subTitle: "Rental", link: "/rental" },
   { mainTitle: "멤버쉽", subTitle: "Menbership", link: "/menbership" },
   { mainTitle: "아카데미", subTitle: "Academy", link: "/academy" },

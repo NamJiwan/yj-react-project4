@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .table_top {
+    @apply border-t-2 border-neutral-500;
+  }
+  .table-td {
+    @apply py-8 px-6 border-l border-b border-neutral-300 leading-6 space-y-2;
+  }
+}
+
 @font-face {
   font-family: "Noto Sans KR";
   font-weight: 300;
