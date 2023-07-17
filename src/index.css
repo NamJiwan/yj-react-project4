@@ -6,7 +6,7 @@
   .table_top {
     @apply border-t-2 border-neutral-500;
   }
-  .table-td {
+  .table_td {
     @apply py-8 px-6 border-l border-b border-neutral-300 leading-6 space-y-2;
   }
 }

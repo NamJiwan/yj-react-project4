@@ -5,6 +5,7 @@ import Page from "./Page";
 import InformationTicket from "./app/InformationTicket";
 import RentalNotice from "./app/RentalNotice";
 import RentalNoticeWrite from "./app/RentalNoticeWrite";
+import RentalNoticeDetail from "./app/RentalNoticeDetail";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,9 @@ const router = createBrowserRouter([
           {
             path:'notice-write',
             element:<RentalNoticeWrite />,
+          },{
+            path:'notice-detail/:id',
+            element:<RentalNoticeDetail />,
           }
         ]
       }

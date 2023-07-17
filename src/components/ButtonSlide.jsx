@@ -1,11 +1,11 @@
 export default function ButtonSlide({ text }) {
   return (
-    <div className="w-full">
+    <div >
       <button
-        className=" w-64 
+        className="
       border
       border-neutral-400
-      px-1
+      px-3
       bg-gray-800
       text-white
       hover:shadow-white

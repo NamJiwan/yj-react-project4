@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import ButtonSlide from "../components/ButtonSlide";
 import Layout from "../components/Layout";
 import LayoutContents from "../components/LayoutContents";
@@ -33,14 +34,14 @@ export default function RentalNoticeWrite() {
                         <span className="text-red-500">*</span>글작성
                     </td>
                     <td className={`${table_class_td}`}>
-                        <textarea row={24} className={`${table_class_input}`} />
+                    <textarea rows={24} className={`${table_class_input} w-full`} />
                     </td>
                 </tr>
             </tbody>
         </table>
         <div className="w-full flex justify-center border-t border-neutral-300 py-8 space-x-2">
             <ButtonSlide text='작성하기' />
-            <ButtonSlide text='목록으로' />
+            <Link to='/rental'><ButtonSlide text='목록으로' /></Link>
         </div>
     </LayoutContents>
  </Layout>
