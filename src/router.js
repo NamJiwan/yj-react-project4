@@ -6,6 +6,7 @@ import InformationTicket from "./app/InformationTicket";
 import RentalNotice from "./app/RentalNotice";
 import RentalNoticeWrite from "./app/RentalNoticeWrite";
 import RentalNoticeDetail from "./app/RentalNoticeDetail";
+import SignUp from "./app/SignUp";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
       {
         path: "",
         element: <Page />,
+      },
+      {
+        path: "signup",
+        element : <SignUp />
       },
       {
         path: "information",
@@ -41,9 +46,10 @@ const router = createBrowserRouter([
           },{
             path:'notice-detail/:id',
             element:<RentalNoticeDetail />,
-          }
+          },
+          
         ]
-      }
+      },
     ],
   },
 ]);

@@ -4,7 +4,7 @@ export async function rentalNotice(){
     return await fetch(`${BASE_PATH}/api/rental/notice`, {
         method: "GET",
         headers:{
-            "Content-Tpye" : "application/json",
+            "Content-Type" : "application/json",
         },
         credentials: "include",
     }).then((res)=>res.json());
@@ -16,8 +16,20 @@ export async function rentalNoticeDetail(props){
     return await fetch (`${BASE_PATH}/api/rental/notice-detail/${id}`, {
         method: "GET",
         headers:{
-            "Content-Tpye" : "application/json",
+            "Content-Type" : "application/json",
         },
         credentials: "include",
+    }).then((res)=>res.json());
+}
+
+export async function rentalNoticeWrite(props){
+    console.log(props);
+    return await fetch (`${BASE_PATH}/api/rental/notice-write`, {
+        method:"POST",
+        headers:{
+            "Content-Type" : "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify(props),
     }).then((res)=>res.json());
 }

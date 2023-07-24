@@ -2,6 +2,7 @@ export default function ButtonSlide({ text }) {
   return (
     <div >
       <button
+        type="submit"
         className="
       border
       border-neutral-400
