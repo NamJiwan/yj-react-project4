@@ -5,10 +5,14 @@ import LayoutContents from "../components/LayoutContents";
 import { useForm } from "react-hook-form";
 import Modal from "react-modal";
 import { useState } from "react";
+import DaumPostcodeEmbed from 'react-daum-postcode';
+import { useMutation } from "react-query";
+import { userRegister } from "../api";
+
 
 export default function SignUp() {
     const [modalIsOpen, setIsOpen] = useState(false);
-    console.log(modalIsOpen)
+    // console.log(modalIsOpen)
     const closeModal = () =>{
         setIsOpen(false);
     }
@@ -26,8 +30,31 @@ export default function SignUp() {
           transform: 'translate(-50%, -50%)',
         },
       };
-    const { register,watch , formState: { errors } } = useForm({mode:"onChange"});
-    console.log(watch("password"))
+    const { register, handleSubmit ,watch, reset , formState: { errors } } = useForm({mode:"onChange"});
+    // console.log(watch("password"))
+    
+    //우편번호 주소 값 저장
+    const [zipcode, setZipcode] = useState("");
+    const [addressDetail,setAddressDetail] = useState("");
+    const handleComplete = (data) =>{
+        // console.log(data)
+        setZipcode(data.zonecode);
+        setAddressDetail(data.address);
+        setIsOpen(false);
+    }
+    // console.log(zipcode)
+    // console.log(addressDetail);
+    
+    const {mutate} = useMutation(userRegister, {
+        onSuccess : () =>{
+            reset();
+        }
+    });
+
+    const onSubmit = data =>{
+        // console.log(data);
+        mutate(data);
+    }
     return (
         <div>
             <Layout>
@@ -36,10 +63,11 @@ export default function SignUp() {
                     style={customStyles}
                     onRequestClose={closeModal}
                 >
-
+                    <DaumPostcodeEmbed onComplete={handleComplete} />
+                    <button className="border border-neutral-300 px-4 py-1 rounded-md hover:text-neutral-700 hover:border-neutral-700" onClick={closeModal}>close</button>
                 </Modal>
                 <LayoutContents title="회원가입">
-                    <form>
+                    <form onSubmit={handleSubmit(onSubmit)}>
                         <table className="table_top w-full">
                             <tbody>
                                 <tr>
@@ -118,12 +146,12 @@ export default function SignUp() {
                                         <div className=" space-x-2">
                                             <input type="text"
                                                 {...register("zipcode")}
-                                                disabled className="border border-neutral-300 p-2 bg-neutral-50" />
+                                                disabled className="border border-neutral-300 p-2 bg-neutral-50" value={zipcode}/>
                                             <button type="button" onClick={openModal} className="px-4 py-2 rounded text-sm border border-neutral-300 hover:shadow-md">우편번호검색</button>
                                         </div>
                                         <input type="text"
                                             {...register("address1")}
-                                            disabled className="border border-neutral-300 p-2 bg-neutral-50 w-full" />
+                                            disabled className="border border-neutral-300 p-2 bg-neutral-50 w-full" value={addressDetail} />
                                         <input type="text"
                                             {...register("address2")}
                                             className="border border-neutral-300 p-2 w-full" />
