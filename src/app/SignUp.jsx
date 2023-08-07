@@ -26,7 +26,7 @@ export default function SignUp() {
           transform: 'translate(-50%, -50%)',
         },
       };
-    const { register, handleSubmit,watch , formState: { errors } } = useForm({mode:"onChange"});
+    const { register,watch , formState: { errors } } = useForm({mode:"onChange"});
     console.log(watch("password"))
     return (
         <div>
