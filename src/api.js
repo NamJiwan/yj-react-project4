@@ -1,5 +1,5 @@
 
-const BASE_PATH= process.env.NODE_ENV === "production" ? "https://port-0-yj-react-project4-back-3prof2lll098hrb.sel4.cloudtype.app/" : "http://localhost:8080";
+const BASE_PATH= process.env.NODE_ENV === "production" ? "https://port-0-yj-react-project4-back-3prof2lll098hrb.sel4.cloudtype.app" : "http://localhost:8080";
 export async function rentalNotice(){
     return await fetch(`${BASE_PATH}/api/rental/notice`, {
         method: "GET",
