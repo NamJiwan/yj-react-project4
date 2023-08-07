@@ -32,7 +32,7 @@ export default function SignUp() {
         <div>
             <Layout>
                 <Modal 
-                    isOpen={true}
+                    isOpen={modalIsOpen}
                     style={customStyles}
                     onRequestClose={closeModal}
                 >
