@@ -1,9 +1,11 @@
-export default function ButtonSlide({ text }) {
+export default function ButtonSlide({ text, pHeight }) {
   return (
     <div >
       <button
         type="submit"
-        className="
+        className={`
+        ${pHeight && 'py-4'}
+        w-full
       border
       border-neutral-400
       px-3
@@ -11,10 +13,10 @@ export default function ButtonSlide({ text }) {
       text-white
       hover:shadow-white
       hover:text-neutral-600
-      hover:shadow-[inset_20rem_0_0_0]
+      hover:shadow-[inset_30rem_0_0_0]
       duration-[400ms,700ms]
       transition-[color,box-shadow]
-                "
+      `}
       >
         <p>{text}</p>
       </button>

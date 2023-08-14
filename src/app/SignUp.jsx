@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ButtonSlide from "../components/ButtonSlide";
 import Layout from "../components/Layout";
 import LayoutContents from "../components/LayoutContents";
@@ -13,7 +13,7 @@ import { userRegister } from "../api";
 export default function SignUp() {
     const [modalIsOpen, setIsOpen] = useState(false);
     // console.log(modalIsOpen)
-    const closeModal = () =>{
+    const closeModal = () => {
         setIsOpen(false);
     }
     const openModal = () => {
@@ -21,22 +21,22 @@ export default function SignUp() {
     }
     const customStyles = {
         content: {
-          width:"600px",
-          top: '30%',
-          left: '50%',
-          right: 'auto',
-          bottom: 'auto',
-          marginRight: '-50%',
-          transform: 'translate(-50%, -50%)',
+            width: "600px",
+            top: '30%',
+            left: '50%',
+            right: 'auto',
+            bottom: 'auto',
+            marginRight: '-50%',
+            transform: 'translate(-50%, -50%)',
         },
-      };
-    const { register, handleSubmit ,watch, reset , formState: { errors } } = useForm({mode:"onChange"});
+    };
+    const { register, handleSubmit, watch, reset, formState: { errors } } = useForm({ mode: "onChange" });
     // console.log(watch("password"))
-    
+
     //우편번호 주소 값 저장
     const [zipcode, setZipcode] = useState("");
-    const [addressDetail,setAddressDetail] = useState("");
-    const handleComplete = (data) =>{
+    const [addressDetail, setAddressDetail] = useState("");
+    const handleComplete = (data) => {
         // console.log(data)
         setZipcode(data.zonecode);
         setAddressDetail(data.address);
@@ -44,21 +44,22 @@ export default function SignUp() {
     }
     // console.log(zipcode)
     // console.log(addressDetail);
-    
-    const {mutate} = useMutation(userRegister, {
-        onSuccess : () =>{
+    const navigate = useNavigate();
+    const { mutate } = useMutation(userRegister, {
+        onSuccess: () => {
             reset();
+            navigate("/");
         }
     });
 
-    const onSubmit = data =>{
+    const onSubmit = data => {
         // console.log(data);
         mutate(data);
     }
     return (
         <div>
             <Layout>
-                <Modal 
+                <Modal
                     isOpen={modalIsOpen}
                     style={customStyles}
                     onRequestClose={closeModal}
@@ -74,15 +75,15 @@ export default function SignUp() {
                                     <td className="table_td border-l-0">회원아이디</td>
                                     <td className="table_td border-l-0 space-x-2">
                                         <input
-                                            {...register("username",{
+                                            {...register("username", {
                                                 required: "아이디는 필수 입력항목입니다.",
                                                 minLength: {
-                                                    value : 6,
-                                                    message : "아이디는 6자이상 입력해야 합니다."
+                                                    value: 6,
+                                                    message: "아이디는 6자이상 입력해야 합니다."
                                                 }
                                             })}
                                             type="text" className="border border-neutral-300 p-2" />
-                                            <span className="text-red-500 text-sm">{errors?.username?.message}</span>
+                                        <span className="text-red-500 text-sm">{errors?.username?.message}</span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -99,10 +100,10 @@ export default function SignUp() {
                                         <input
                                             {...register("password2")}
                                             type="password" className="border border-neutral-300 p-2" />
-                                            {watch("password") !== watch("password2") && (
-                                                <span  className="text-red-500 text-sm">비밀번호는 같아야 합니다.</span>
-                                            )}
-                                            
+                                        {watch("password") !== watch("password2") && (
+                                            <span className="text-red-500 text-sm">비밀번호는 같아야 합니다.</span>
+                                        )}
+
                                     </td>
                                 </tr>
                                 <tr>
@@ -125,19 +126,19 @@ export default function SignUp() {
                                     <td className="table_td border-l-0">이메일</td>
                                     <td className="table_td border-l-0 space-x-2">
                                         <input
-                                            {...register("email",{
-                                                required:"이메일 항목은 필수 입력사항입니다.",
-                                                minLength:{
-                                                    value:5,
-                                                    message:"최소 5자 이상 작성해 주셔야 합니다."
+                                            {...register("email", {
+                                                required: "이메일 항목은 필수 입력사항입니다.",
+                                                minLength: {
+                                                    value: 5,
+                                                    message: "최소 5자 이상 작성해 주셔야 합니다."
                                                 },
-                                                pattern:{
+                                                pattern: {
                                                     value: /[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]$/i,
-                                                    message:"이메일 형식을 맞춰 주셔야 합니다."
+                                                    message: "이메일 형식을 맞춰 주셔야 합니다."
                                                 }
                                             })}
                                             type="email" className="border border-neutral-300 p-2" />
-                                            <span  className="text-red-500 text-sm">{errors?.email?.message}</span>
+                                        <span className="text-red-500 text-sm">{errors?.email?.message}</span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -146,7 +147,7 @@ export default function SignUp() {
                                         <div className=" space-x-2">
                                             <input type="text"
                                                 {...register("zipcode")}
-                                                disabled className="border border-neutral-300 p-2 bg-neutral-50" value={zipcode}/>
+                                                disabled className="border border-neutral-300 p-2 bg-neutral-50" value={zipcode} />
                                             <button type="button" onClick={openModal} className="px-4 py-2 rounded text-sm border border-neutral-300 hover:shadow-md">우편번호검색</button>
                                         </div>
                                         <input type="text"

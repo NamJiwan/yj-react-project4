@@ -38,7 +38,7 @@ export default function Header() {
                 <SearchAsset />
               </div>
               <div>home</div>
-              <div>login</div>
+              <Link to='/signin'><div>login</div></Link>
               <Link to='/signup'><div>join</div></Link>
               <div>
                 <select size={"sm"} className="text-sm rounded-sm py-2 border border-neutral-300 px-2">
