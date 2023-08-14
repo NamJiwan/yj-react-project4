@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import LogoAsset from "./asset/LogoAsset";
 import SearchAsset from "./asset/SearchAsset";
+import useUser from "./svg/hooks/useUser";
 
 const GNB = [
   { mainTitle: "공연안내", subTitle: "Performance", link: "/information" },
@@ -11,6 +12,8 @@ const GNB = [
   { mainTitle: "대구엑스포", subTitle: "Contact", link: "/contact" },
 ];
 export default function Header() {
+  const {userLoading,isLoggedIn,user} = useUser();
+  console.log(userLoading,isLoggedIn,user);
   return (
     <>
       <div className="w-full flex justify-center h-header-height shadow-md">
@@ -38,8 +41,19 @@ export default function Header() {
                 <SearchAsset />
               </div>
               <div>home</div>
-              <Link to='/signin'><div>login</div></Link>
-              <Link to='/signup'><div>join</div></Link>
+              {
+                isLoggedIn ==="true" ?  (
+                  <>
+                    <div>이름</div>
+                    <div>logout</div>
+                  </>
+                )  :(
+                  <>
+                    <Link to='/signin'><div>login</div></Link>
+                <Link to='/signup'><div>join</div></Link>
+                  </>
+                )
+              }              
               <div>
                 <select size={"sm"} className="text-sm rounded-sm py-2 border border-neutral-300 px-2">
                   <option>한국어</option>
