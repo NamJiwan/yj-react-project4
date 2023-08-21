@@ -10,21 +10,27 @@ import InstaAsset from "../components/asset/InstaAsset";
 import { useForm } from "react-hook-form";
 import { useMutation } from "react-query";
 import { userSignIn } from "../api";
+import { useNavigate } from "react-router-dom";
 
 
 export default function SignIn() {
-    const { register, handleSubmit, reset, formState: { errors } } = useForm({ mode: "onChange" })
-    const {mutate} =useMutation(userSignIn,{
-        onSuccess: ()=>{
-            reset();
-            
-        }
-    });
+    const { register, handleSubmit, formState: { errors } } = useForm({ mode: "onChange" })
+    const {data,mutate} =useMutation(userSignIn);
     
+    // 홈페이지 보내기
+    const navigate = useNavigate();
+    if(data?.ok ==="false"){
+        console.log("로그인에러")
+    }
+    if(data?.ok ==="true"){
+        navigate("/")
+    }
+
     const onSubmit = (data) => {
         // console.log(data);
         mutate(data);
     }
+    
     return (
         <Layout>
             <LayoutContents >
