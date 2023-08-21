@@ -71,11 +71,22 @@ export async function loginSuccess() {
 
 // 로그아웃
 export async function logout() {
+  
   return await fetch(`${BASE_PATH}/api/user/logout`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     credentials: "include",
+  }).then((res) => res.json());
+}
+export async function kakaoLogin(code) {  
+  return await fetch(`${BASE_PATH}/api/user/kakao`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+    body:JSON.stringify({code}),
   }).then((res) => res.json());
 }

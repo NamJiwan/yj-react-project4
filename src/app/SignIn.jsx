@@ -8,21 +8,26 @@ import FacebookAsset from "../components/asset/FacebookAsset";
 import NaverAsset from "../components/asset/NaverAsset";
 import InstaAsset from "../components/asset/InstaAsset";
 import { useForm } from "react-hook-form";
-import { useMutation } from "react-query";
+import {  useMutation } from "react-query";
 import { userSignIn } from "../api";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 
 
 export default function SignIn() {
-    const { register, handleSubmit, formState: { errors } } = useForm({ mode: "onChange" })
-    const {data,mutate} =useMutation(userSignIn);
     
+    const { register, handleSubmit, formState: { errors } } = useForm({ mode: "onChange" })
+    const {  data, mutate } = useMutation(userSignIn);
+
     // 홈페이지 보내기
     const navigate = useNavigate();
-    if(data?.ok ==="false"){
+    
+    
+    if (data?.ok === "false") {
         console.log("로그인에러")
     }
-    if(data?.ok ==="true"){
+    
+    if (data?.ok === "true") {
         navigate("/")
     }
 
@@ -30,7 +35,7 @@ export default function SignIn() {
         // console.log(data);
         mutate(data);
     }
-    
+
     return (
         <Layout>
             <LayoutContents >
@@ -85,9 +90,11 @@ export default function SignIn() {
                         </div>
                         {/* 회원가입, 아이디 찾기 비밀번호 찾기 */}
                         <div className="flex justify-center w-full space-x-3 my-8">
-                            <div>
-                                <KakaoAsset />
-                            </div>
+                            <Link to={`https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${process.env.REACT_APP_KAKAO_CLIENT_ID}&redirect_uri=${process.env.REACT_APP_KAKAO_REDIRECT_URI}`}>
+                                <div>
+                                    <KakaoAsset />
+                                </div>
+                            </Link>
                             <div>
                                 <FacebookAsset />
                             </div>
